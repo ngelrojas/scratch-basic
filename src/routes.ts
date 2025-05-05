@@ -12,6 +12,7 @@ interface Route {
 // Lazy load components
 const Home = lazy(() => import('@/pages/Home'));
 const FAQ = lazy(() => import('@/pages/Faq'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
 
 // Define routes configuration
 export const routes: Route[] = [
@@ -27,6 +28,13 @@ export const routes: Route[] = [
         component: FAQ,
         exact: true,
         title: 'FAQ',
+        protected: false,
+    },
+    {
+        path: '*',
+        component: NotFound,
+        exact: false,
+        title: '404',
         protected: false,
     },
 ];
